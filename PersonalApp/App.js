@@ -24,16 +24,10 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import AppContainer from './src/components/AppContainer';
+
 const App = () => {
-  return (
-    <View>
-      <Text>hello my app !</Text>
-    </View>
-  );
+  return <AppContainer />;
 };
-
-const styles = StyleSheet.create({
-
-});
 
 export default App;
