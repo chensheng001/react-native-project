@@ -11,6 +11,7 @@ const NewsStackNavigator = createStackNavigator(
       screen: News,
       navigationOptions: {
         header: null,
+        headerBackTitle: '返回',
       },
     },
     NewsDetail: {
