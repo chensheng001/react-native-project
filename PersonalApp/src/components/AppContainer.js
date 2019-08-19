@@ -6,6 +6,8 @@ import Mine from './Mine/Mine';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import AddressBookStackNavigator from './menu/AddressBookStackNavigator';
+import NewsStackNavigator from './menu/NewsStackNavigator';
 
 /*底部菜单栏*/
 const BottomMater = createBottomTabNavigator(
@@ -25,7 +27,7 @@ const BottomMater = createBottomTabNavigator(
       },
     },
     News: {
-      screen: News,
+      screen: NewsStackNavigator,
       navigationOptions: {
         title: '新闻',
         tabBarIcon: ({focused, horizontal, tintColor}) => {
@@ -39,7 +41,7 @@ const BottomMater = createBottomTabNavigator(
       },
     },
     AddressBook: {
-      screen: AddressBook,
+      screen: AddressBookStackNavigator,
       navigationOptions: {
         title: '通讯录',
         tabBarIcon: ({focused, horizontal, tintColor}) => {
@@ -68,7 +70,7 @@ const BottomMater = createBottomTabNavigator(
     },
   },
   {
-    initialRouteName: 'Home', //第一次加载时初始选项卡路由的 routeName
+    initialRouteName: 'News', //第一次加载时初始选项卡路由的 routeName
     order: ['Home', 'News', 'AddressBook', 'Mine'], //定义选项卡顺序的 routeNames 数组
     tabBarOptions: {
       activeTintColor: 'orange', //标签和图标选中颜色
@@ -94,7 +96,7 @@ const styles = StyleSheet.create({
   iconStyle: {
     fontSize: 20,
   },
-})
+});
 
 const AppContainer = createAppContainer(BottomMater);
 export default AppContainer;

@@ -21,20 +21,41 @@ class Carousel extends Component {
     };
   }
 
+  // 父组件数据发生改变
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const {imgDatas} = nextProps;
+    // 当传入的type发生变化的时候，更新state
+    if (imgDatas !== prevState.imgDatas) {
+      return {
+        imgDatas: imgDatas,
+      };
+    }
+    // 否则，对于state不进行任何操作
+    return null;
+  }
+
+  /*componentWillReceiveProps(nextProps: Readonly<P>, nextContext: any): void {
+    const list = nextProps.list.map(item => {
+      return {title: item.title, imgUrl: item.imgUrl};
+    });
+    this.setState({
+      imgDatas: list,
+    });
+  }*/
+
   //android
   setSize(imgItem) {
     let showH;
     if (Platform.OS != 'ios') {
       Image.getSize(imgItem, (w, h) => {
         showH = Math.floor(h / (w / width));
-        console.log(showH)
         this.setState({imgH: showH});
       });
     }
   }
 
   componentDidMount() {
-    this.getImgData();
+    //this.getImgData();
     this.startTimer();
   }
 
@@ -73,15 +94,14 @@ class Carousel extends Component {
         allViews.push(
           <View key={index} style={{width: width, backgroundColor: '#eee'}}>
             <Image
-              source={item.imgUrl}
+              source={{uri: item.imgUrl}}
               onLoadStart={() => {
-                this.setSize(item.imgUrl.uri);
+                this.setSize(item.imgUrl);
               }}
               style={{
                 width: width,
-                resizeMode: 'contain',
-                height: this.state.imgH,
-                borderRadius: 5,
+                resizeMode: 'cover',
+                height: 250,
               }}
             />
           </View>,
@@ -147,7 +167,7 @@ class Carousel extends Component {
     return (
       <View>
         <ScrollView
-          ref="scrollView"
+          ref='scrollView'
           horizontal={true}
           pagingEnabled={true}
           showsHorizontalScrollIndicator={false}
