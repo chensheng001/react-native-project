@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image, Dimensions} from 'react-native';
 
 class Mine extends React.Component {
   render() {

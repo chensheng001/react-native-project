@@ -167,7 +167,7 @@ class Carousel extends Component {
     return (
       <View>
         <ScrollView
-          ref='scrollView'
+          ref="scrollView"
           horizontal={true}
           pagingEnabled={true}
           showsHorizontalScrollIndicator={false}

@@ -7,27 +7,11 @@
  */
 
 import React, {Fragment} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
 import AppContainer from './src/components/AppContainer';
+import Launcher from './src/components/Laucnher';
 
 const App = () => {
-	
   return <AppContainer />;
 };
 

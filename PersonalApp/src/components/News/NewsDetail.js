@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet, ScrollView, Dimensions} from 'react-native';
 import ScreenWidth from '../../model/ScreenWidth';
 import getScreenImageHeight from '../../model/GetScreenImageHeight';
+import HTML from 'react-native-render-html';
 class NewsDetail extends Component {
   constructor(props) {
     super(props);
@@ -11,42 +12,50 @@ class NewsDetail extends Component {
     };
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
+  /*static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.navigation.state.params) {
+      console.log(nextProps.navigation.state.params);
       return {
         detailObj: nextProps.navigation.state.params,
       };
     }
     return null;
-  }
+  }*/
 
   componentDidMount(): void {
-    // console.log(this.props.navigation.state.params)
-    if (this.state.detailObj.imgUrl) {
-      getScreenImageHeight(this.state.detailObj.imgUrl).then(height => {
-        this.setState({
-          displayImgH: height,
-        });
+    if (this.props.navigation.state.params) {
+      this.setState({
+        detailObj: this.props.navigation.state.params,
       });
+      //获取图片高度
+      getScreenImageHeight(this.props.navigation.state.params.imgUrl).then(
+        height => {
+          this.setState({
+            displayImgH: height,
+          });
+        },
+      );
     }
   }
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.titleStyle}>{this.state.detailObj.title}</Text>
-        <Text style={styles.dateStyle}>{this.state.detailObj.date}</Text>
-        <Image
-          style={[styles.imgStyle, {height: this.state.displayImgH}]}
-          source={{uri: this.state.detailObj.imgUrl}}
-        />
-        <Text style={styles.contentStyle}>
-          &emsp;&emsp;{this.state.detailObj.detail}
-        </Text>
-      </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <Text style={styles.titleStyle}>{this.state.detailObj.title}</Text>
+          <Text style={styles.dateStyle}>{this.state.detailObj.date}</Text>
+          <Image
+            style={[styles.imgStyle, {height: this.state.displayImgH}]}
+            source={{uri: this.state.detailObj.imgUrl}}
+          />
+          {/*<HTML html={this.state.detailObj.detail} containerStyle={htmlStyle} imagesMaxWidth={Dimensions.get('window').width - 30} />*/}
+          <Text style={styles.contentStyle}>{this.state.detailObj.detail}</Text>
+        </View>
+      </ScrollView>
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     padding: 15,

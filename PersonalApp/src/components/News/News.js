@@ -24,7 +24,7 @@ class News extends React.Component {
   }
 
   componentDidMount(): void {
-    var url = 'http://49.234.3.245:8002/data/react-native/news.json';
+    var url = 'http://49.234.3.245:8002/data/react-native/news.json?' + new Date().getTime();
     this.getData(url).then(data => {
       this.setState({
         list: data.data,
@@ -36,7 +36,9 @@ class News extends React.Component {
   getData = url => {
     return new Promise((resolve, reject) => {
       fetch(url)
-        .then(respones => respones.json())
+        .then(respones => {
+          return respones.json();
+        })
         .then(result => {
           resolve(result);
         })
