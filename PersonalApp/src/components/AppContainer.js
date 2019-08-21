@@ -72,7 +72,7 @@ const BottomMater = createBottomTabNavigator(
     },
   },
   {
-    initialRouteName: 'Home', //第一次加载时初始选项卡路由的 routeName
+    initialRouteName: 'Mine', //第一次加载时初始选项卡路由的 routeName
     order: ['Home', 'News', 'Mine', 'AddressBook'], //定义选项卡顺序的 routeNames 数组
     tabBarOptions: {
       activeTintColor: 'orange', //标签和图标选中颜色
