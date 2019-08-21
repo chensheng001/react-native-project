@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, TextInput, Image} from 'react-native';
+import {View, Text, StyleSheet, TextInput, Image, TouchableOpacity} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ScreenWidth from '../../model/ScreenWidth';
@@ -26,8 +26,24 @@ class HomePage extends React.Component {
           placeholder={'请输入.......'}
         />
         <View style={styles.navBarRightStyle}>
-          <Image source={{uri: 'asset:/icon_homepage_message.png'}} style={{width: 25, height: 25, resizeMode: 'contain'}} />
-          <Image source={{uri: 'asset:/icon_homepage_scan.png'}} style={{width: 25, height: 25, resizeMode: 'contain'}} />
+          <TouchableOpacity
+            onPress={() => {
+              alert('alarm');
+            }}>
+            <Image
+              source={{uri: 'asset:/icon_homepage_message.png'}}
+              style={{width: 25, height: 25, resizeMode: 'contain'}}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              alert('scan');
+            }}>
+            <Image
+              source={{uri: 'asset:/icon_homepage_scan.png'}}
+              style={{width: 25, height: 25, resizeMode: 'contain'}}
+            />
+          </TouchableOpacity>
         </View>
       </View>
     );

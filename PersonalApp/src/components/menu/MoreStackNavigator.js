@@ -1,10 +1,8 @@
 import {createStackNavigator} from 'react-navigation';
-import {Text} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import Antd from 'react-native-vector-icons/AntDesign';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import News from '../News/News';
-import NewsDetail from '../News/NewsDetail';
 import More from '../More/More';
 
 const MoreStackNavigator = createStackNavigator(
@@ -14,9 +12,14 @@ const MoreStackNavigator = createStackNavigator(
       navigationOptions: {
         title: '更多',
         headerRight: (
-          <Text>
-            <Icon style={{fontSize: 20, color: '#fff'}} name={'cog'} />
-          </Text>
+          <TouchableOpacity
+            onPress={() => {
+              alert('点击');
+            }}>
+            <Text>
+              <Icon style={{fontSize: 20, color: '#fff'}} name={'cog'} />
+            </Text>
+          </TouchableOpacity>
         ),
         headerRightContainerStyle: {
           marginRight: 10,
