@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {View, Text, Image, StyleSheet, ScrollView, Dimensions} from 'react-native';
 import ScreenWidth from '../../model/ScreenWidth';
 import getScreenImageHeight from '../../model/GetScreenImageHeight';
-import HTML from 'react-native-render-html';
 class NewsDetail extends Component {
   constructor(props) {
     super(props);

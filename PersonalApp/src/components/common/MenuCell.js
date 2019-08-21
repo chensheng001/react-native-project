@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Switch, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import MyImage from './MyImage';
 
 class MenuCell extends Component {
   constructor(props) {
@@ -26,7 +27,10 @@ class MenuCell extends Component {
           {this.props.rightTitle}
         </Text>
         {this.props.rightImg ? (
-          <Image source={{uri: this.props.rightImg}} style={this.props.rightImgStyle} />
+          <MyImage
+            source={this.props.rightImg}
+            imgStyle={this.props.rightImgStyle}
+          />
         ) : null}
         <Icon name={'right'} style={{fontSize: 18, color: '#b3b3b3'}} />
       </View>
@@ -40,7 +44,10 @@ class MenuCell extends Component {
           <Icon name={this.props.leftIcon} style={styles.iconStyle} />
         ) : null}
         {this.props.leftImg ? (
-          <Image source={{uri: this.props.leftImg}} style={styles.imgStyle} />
+          <MyImage
+            source={this.props.leftImg}
+            imgStyle={this.props.leftImgStyle}
+          />
         ) : null}
         <Text style={styles.textStyle}>{this.props.leftTitle}</Text>
       </View>
@@ -73,9 +80,6 @@ const styles = StyleSheet.create({
     color: 'orange',
   },
   imgStyle: {
-    width: 26,
-    height: 26,
-    borderRadius: 13,
     marginRight: 10,
   },
   textStyle: {
@@ -95,5 +99,13 @@ const styles = StyleSheet.create({
 MenuCell.defaultProps = {
   title: '默认title',
   isSwitch: false,
+  leftIcon: '',
+  leftImg: '',
+  leftImgStyle: '',
+  leftTitle: '',
+  rightIcon: '',
+  rightImg: '',
+  rightImgStyle: '',
+  rightTitle: '',
 };
 export default MenuCell;
