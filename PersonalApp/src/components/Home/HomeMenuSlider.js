@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   sliderItemCellStyle: {
-    width: ScreenWidth / 4,
+    width: ScreenWidth / 5,
     height: 90,
     justifyContent: 'center',
     alignItems: 'center',
