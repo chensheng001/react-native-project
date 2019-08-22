@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, Text, StyleSheet, TextInput, Image, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TextInput, Image, TouchableOpacity, ScrollView} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ScreenWidth from '../../model/ScreenWidth';
+import HomeMenuSlider from './HomeMenuSlider';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class HomePage extends React.Component {
     this.state = {};
   }
 
+  //头部搜索组件
   _renderNavBar() {
     return (
       <View style={styles.navBarStyle}>
@@ -52,8 +54,11 @@ class HomePage extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {/*头部*/}
         {this._renderNavBar()}
+        <ScrollView>
+          {/*菜单轮播*/}
+          <HomeMenuSlider />
+        </ScrollView>
       </View>
     );
   }
@@ -90,6 +95,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    backgroundColor: '#f6f6f6',
   },
 });
 

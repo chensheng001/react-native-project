@@ -11,7 +11,7 @@ class MyImage extends Component {
   }
   //设置默认图片大小
   static defaultProps = {
-    imgStyle: {
+    style: {
       width: 30,
       height: 30,
     },
@@ -27,17 +27,17 @@ class MyImage extends Component {
 
   dealSize(imgW, imgH) {
     let width, height;
-    if (this.props.imgStyle.width) {
-      width = this.props.imgStyle.width;
-      height = Math.floor(imgH / (imgW / this.props.imgStyle.width));
+    if (this.props.style.width) {
+      width = this.props.style.width;
+      height = Math.floor(imgH / (imgW / this.props.style.width));
     }
-    if (this.props.imgStyle.height) {
-      height = this.props.imgStyle.height;
-      width = Math.floor(imgW / (imgH / this.props.imgStyle.height));
+    if (this.props.style.height) {
+      height = this.props.style.height;
+      width = Math.floor(imgW / (imgH / this.props.style.height));
     }
-    if (this.props.imgStyle.width && this.props.imgStyle.height) {
-      width = this.props.imgStyle.width;
-      height = this.props.imgStyle.height;
+    if (this.props.style.width && this.props.style.height) {
+      width = this.props.style.width;
+      height = this.props.style.height;
     }
     this.setState({
       width: width,
@@ -47,7 +47,7 @@ class MyImage extends Component {
 
   render() {
     //传递来的样式
-    const propStyle = this.props.imgStyle;
+    const propStyle = this.props.style;
     //计算出的图片宽高
     const calcStyle = {
       width: this.state.width,

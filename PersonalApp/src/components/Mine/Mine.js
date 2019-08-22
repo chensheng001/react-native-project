@@ -23,9 +23,9 @@ class Mine extends React.Component {
   _renderHeaderView() {
     return (
       <View style={styles.headerViewStyle}>
-        <MyImage source={'asset:/see.png'} imgStyle={styles.headerImgStyle} />
+        <MyImage source={'asset:/see.png'} style={styles.headerImgStyle} />
         <View style={styles.headerRightStyle}>
-          <Text style={styles.headerTextStyle}>他来了他来了</Text>
+          <Text style={styles.headerTextStyle}>我是APP</Text>
           <Icon name={'right'} style={{fontSize: 18, color: '#fff'}} />
         </View>
         {this._renderHeaderBottomview()}
@@ -79,7 +79,7 @@ class Mine extends React.Component {
         {data.map((item, key) => {
           return (
             <View key={key} style={styles.myOrderItemStyle}>
-              <MyImage source={item.imgUrl} imgStyle={{width: 30}} />
+              <MyImage source={item.imgUrl} style={{width: 30}} />
               <Text style={styles.myOrderTextStyle}>{item.text}</Text>
             </View>
           );
@@ -90,7 +90,7 @@ class Mine extends React.Component {
     /*data.map((item, key) => {
       itemArr.push(
         <View key={key} style={styles.myOrderItemStyle}>
-          <MyImage source={item.imgUrl} imgStyle={{width: 30}} />
+          <MyImage source={item.imgUrl} style={{width: 30}} />
           <Text style={styles.myOrderTextStyle}>{item.text}</Text>
         </View>,
       );

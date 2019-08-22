@@ -29,7 +29,7 @@ class MenuCell extends Component {
         {this.props.rightImg ? (
           <MyImage
             source={this.props.rightImg}
-            imgStyle={this.props.rightImgStyle}
+            style={this.props.rightImgStyle}
           />
         ) : null}
         <Icon name={'right'} style={{fontSize: 18, color: '#b3b3b3'}} />
@@ -46,7 +46,7 @@ class MenuCell extends Component {
         {this.props.leftImg ? (
           <MyImage
             source={this.props.leftImg}
-            imgStyle={this.props.leftImgStyle}
+            style={this.props.leftImgStyle}
           />
         ) : null}
         <Text style={styles.textStyle}>{this.props.leftTitle}</Text>
@@ -78,9 +78,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginRight: 10,
     color: 'orange',
-  },
-  imgStyle: {
-    marginRight: 10,
   },
   textStyle: {
     fontSize: 14,
