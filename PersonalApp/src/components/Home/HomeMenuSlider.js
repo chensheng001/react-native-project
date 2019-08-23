@@ -23,7 +23,7 @@ class HomeMenuSlider extends Component {
   }
 
   getMenuList() {
-    const url = 'http://49.234.3.245:8002/data/react-native/TopMenu.json?' + new Date().getTime();
+    const url = 'http://49.234.3.245:8002/data/react-native/TopMenu.json';
     fetchApi(url)
       .then(res => {
         this.setState({
@@ -31,6 +31,7 @@ class HomeMenuSlider extends Component {
         });
       })
       .catch(err => {
+        console.log(err);
         alert('数据没请求到！');
       });
   }

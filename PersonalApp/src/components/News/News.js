@@ -24,7 +24,7 @@ class News extends React.Component {
   }
 
   componentDidMount(): void {
-    var url = 'http://49.234.3.245:8002/data/react-native/news.json?' + new Date().getTime();
+    var url = 'http://49.234.3.245:8002/data/react-native/news.json';
     this.getData(url).then(data => {
       this.setState({
         list: data.data,
@@ -35,7 +35,7 @@ class News extends React.Component {
   // 查询新闻列表
   getData = url => {
     return new Promise((resolve, reject) => {
-      fetch(url)
+      fetch(url + '?' + new Date().getTime())
         .then(respones => {
           return respones.json();
         })
