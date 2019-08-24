@@ -13,7 +13,7 @@ class HomeCommonCell extends Component {
     mainTitleColor: 'orange',
     mainTitleFontSize: 16,
     imgHeight: 35,
-    imgStyle: {},
+    imgBorderRadius: 0,
   };
 
   render() {
@@ -26,9 +26,10 @@ class HomeCommonCell extends Component {
         color: this.props.mainTitleColor,
         fontSize: this.props.mainTitleFontSize,
       },
-      imgStyle: Object.assign(this.props.imgStyle, {
+      imgStyle: {
         height: this.props.imgHeight,
-      }),
+        borderRadius: this.props.imgBorderRadius,
+      },
     };
 
     return (
@@ -49,6 +50,10 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: 'space-between',
     alignItems: 'center',
+    borderBottomWidth: 1,
+    borderRightWidth: 1,
+    borderBottomColor: '#f6f6f6',
+    borderRightColor: '#f6f6f6',
   },
   subTitleStyle: {
     color: 'gray',
