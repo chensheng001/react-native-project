@@ -1,6 +1,7 @@
 import {createStackNavigator} from 'react-navigation';
 import React from 'react';
 import HomePage from '../Home/HomePage';
+import HomeShopCenterDetail from '../Home/HomeShopCenterDetail';
 
 const HomeStackNavigator = createStackNavigator(
   {
@@ -8,6 +9,12 @@ const HomeStackNavigator = createStackNavigator(
       screen: HomePage,
       navigationOptions: {
         header: null,
+      },
+    },
+    HomeShopCenterDetail: {
+      screen: HomeShopCenterDetail,
+      navigationOptions: {
+        title: '购物中心详情',
       },
     },
   },

@@ -15,11 +15,10 @@ class HomeHotBottom extends Component {
   //请求热点数据
   componentDidMount(): void {
     //请求热点下部分
-    var url = 'http://49.234.3.245:8002/data/react-native/HomeHotData.json';
+    var url = 'http://49.234.3.245:8002/data/react-native/XMG_Home_D4.json';
     this.getData(url).then(res => {
-      console.log(res)
       this.setState({
-        hotDataBottom: res.bottomData,
+        hotDataBottom: res.data,
       });
     });
   }
@@ -40,10 +39,10 @@ class HomeHotBottom extends Component {
     return (
       <View>
         <HomeCommonCell
-          mainTitle={item.title}
-          subTitle={item.subTitle}
-          imgUrl={'asset:/' + item.hotImage + '.png'}
-          mainTitleColor={'green'}
+          mainTitle={item.maintitle}
+          subTitle={item.deputytitle}
+          imgUrl={'asset:/' + item.imageurl}
+          mainTitleColor={item.typeface_color}
         />
       </View>
     );

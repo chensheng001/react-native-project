@@ -6,6 +6,8 @@ import HomeHotTop from './HomeHotTop';
 import HomeHotMiddle from './HomeHotMiddle';
 import HomeHotBottom from './HomeHotBottom';
 import HomeShopCenter from './HomeShopCenter';
+import HotChannel from './HotChannel';
+import HomeYouLike from './HomeYouLike';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -35,7 +37,13 @@ class HomePage extends React.Component {
           <HomeHotBottom />
 
           {/*购物中心*/}
-          <HomeShopCenter gap={this.props.gap} />
+          <HomeShopCenter navigation={this.props.navigation} gap={this.props.gap} />
+
+          {/*热门频道*/}
+          <HotChannel gap={this.props.gap} />
+
+          {/*猜你喜欢*/}
+          <HomeYouLike gap={this.props.gap} />
         </ScrollView>
       </View>
     );
@@ -46,6 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f6f6f6',
+    paddingBottom: 40,
   },
 });
 

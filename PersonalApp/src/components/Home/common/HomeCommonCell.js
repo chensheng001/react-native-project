@@ -8,6 +8,7 @@ class HomeCommonCell extends Component {
   }
 
   static defaultProps = {
+    viewBackgroundColor: '#fff',
     viewWidth: ScreenWidth / 2,
     viewHeight: 60,
     mainTitleColor: 'orange',
@@ -21,6 +22,7 @@ class HomeCommonCell extends Component {
       container: {
         height: this.props.viewHeight,
         width: this.props.viewWidth,
+        backgroundColor: this.props.viewBackgroundColor,
       },
       mainTitleStyle: {
         color: this.props.mainTitleColor,
@@ -34,7 +36,7 @@ class HomeCommonCell extends Component {
 
     return (
       <View style={[styles.container, _inputStyle.container]}>
-        <View>
+        <View style={styles.cellViewStyle}>
           <Text style={_inputStyle.mainTitleStyle}>{this.props.mainTitle}</Text>
           <Text style={styles.subTitleStyle}>{this.props.subTitle}</Text>
         </View>
@@ -45,19 +47,22 @@ class HomeCommonCell extends Component {
 }
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
     flexDirection: 'row',
     padding: 10,
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     borderBottomWidth: 1,
     borderRightWidth: 1,
     borderBottomColor: '#f6f6f6',
     borderRightColor: '#f6f6f6',
   },
+  cellViewStyle: {
+    justifyContent: 'flex-start',
+  },
   subTitleStyle: {
     color: 'gray',
     fontSize: 12,
+    marginTop: 5,
   },
 });
 export default HomeCommonCell;
