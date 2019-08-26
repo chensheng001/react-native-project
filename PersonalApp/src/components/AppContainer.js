@@ -9,7 +9,8 @@ import {StyleSheet} from 'react-native';
 import AddressBookStackNavigator from './menu/AddressBookStackNavigator';
 import NewsStackNavigator from './menu/NewsStackNavigator';
 import HomeStackNavigator from './menu/HomeStackNavigator';
-import MoreStackNavigator from "./menu/MoreStackNavigator";
+import MoreStackNavigator from './menu/MoreStackNavigator';
+import Other from './Other/Other';
 
 /*底部菜单栏*/
 const BottomMater = createBottomTabNavigator(
@@ -42,7 +43,7 @@ const BottomMater = createBottomTabNavigator(
         },
       },
     },
-    AddressBook: {
+    More: {
       screen: MoreStackNavigator,
       navigationOptions: {
         title: '更多',
@@ -70,10 +71,24 @@ const BottomMater = createBottomTabNavigator(
         },
       },
     },
+    Other: {
+      screen: Other,
+      navigationOptions: {
+        title: '其他',
+        tabBarIcon: ({focused, horizontal, tintColor}) => {
+          return (
+            <AntDesign
+              style={[styles.iconStyle, {color: tintColor}]}
+              name={'earth'}
+            />
+          );
+        },
+      },
+    },
   },
   {
-    initialRouteName: 'Home', //第一次加载时初始选项卡路由的 routeName
-    order: ['Home', 'News', 'Mine', 'AddressBook'], //定义选项卡顺序的 routeNames 数组
+    initialRouteName: 'Other', //第一次加载时初始选项卡路由的 routeName
+    order: ['Home', 'News', 'Mine', 'More', 'Other'], //定义选项卡顺序的 routeNames 数组
     tabBarOptions: {
       activeTintColor: 'orange', //标签和图标选中颜色
       activeBackgroundColor: 'white', //导航选中背景色

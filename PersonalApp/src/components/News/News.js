@@ -9,6 +9,8 @@ import {
   TouchableHighlight,
   ScrollView,
   FlatList,
+  ActivityIndicator,
+  RefreshControl,
 } from 'react-native';
 import Carousel from '../common/Carousel';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -20,6 +22,7 @@ class News extends React.Component {
     super(props);
     this.state = {
       list: [],
+      refreshing: false,
     };
   }
 
@@ -96,13 +99,27 @@ class News extends React.Component {
     );
   }
 
+  //下拉刷新
+  _onRefresh() {
+    this.setState({refreshing: true});
+    var url = 'http://49.234.3.245:8002/data/react-native/news.json';
+    this.getData(url).then(data => {
+      this.setState({
+        list: data.data,
+      });
+    });
+  }
+
   render() {
-    return (
+    return this.state.list.length ? (
       <View>
         <ScrollView style={styles.container}>
           <Carousel imgDatas={this.state.list} />
           <View style={styles.listStyle}>
             <FlatList
+              refreshControl={
+                <RefreshControl refreshing={this.state.refreshing} onRefresh={this._onRefresh} />
+              }
               data={this.state.list}
               // 空布局
               ListEmptyComponent={this._createEmptyView}
@@ -113,6 +130,8 @@ class News extends React.Component {
           </View>
         </ScrollView>
       </View>
+    ) : (
+      <ActivityIndicator size="large" />
     );
   }
 }

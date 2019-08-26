@@ -12,7 +12,7 @@ class HomeShopCenterDetail extends Component {
 
   componentDidMount(): void {
     this.setState({
-      params: this.props.navigation.state.params.detailData
+      params: this.props.navigation.state.params.detailData,
     });
   }
 
