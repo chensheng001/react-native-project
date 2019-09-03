@@ -1,4 +1,4 @@
-# react-native-project
+# 个人react-native练手项目-----仿电商app
 
 该项目为运行在移动设备上的react-native项目(目前仅在安卓模拟器设备测试ok)
 
