@@ -10,3 +10,9 @@
 启动项目
   1. 启动genymotion模拟器，（如用别的如夜神模拟器，默认端口62001，则需通过命令adb connect 127.0.0.1:62001）
   2. 运行项目： react-native run-android(第一遍是构建，需要再一次运行改命令启动服务)
+
+## 效果图
+![image](http://www.haowen108.com/haowen_imgs/personal/rn/rn-home.png)
+![image](http://www.haowen108.com/haowen_imgs/personal/rn/rn-news.png)
+![image](http://www.haowen108.com/haowen_imgs/personal/rn/rn-mine.png)
+![image](http://www.haowen108.com/haowen_imgs/personal/rn/rn-more.png)
