@@ -43,7 +43,7 @@ class HomeNavBar extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              alert('scan');
+
             }}>
             <Image
               source={{uri: 'asset:/icon_homepage_scan.png'}}

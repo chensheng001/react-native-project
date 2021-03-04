@@ -32,7 +32,7 @@ class HomeMenuSlider extends Component {
       })
       .catch(err => {
         console.log(err);
-        alert('数据没请求到！');
+
       });
   }
 

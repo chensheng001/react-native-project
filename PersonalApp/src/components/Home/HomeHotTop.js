@@ -31,7 +31,7 @@ class HomeHotTop extends Component {
           resolve(data);
         })
         .catch(err => {
-          alert('数据没请求到');
+
         });
     });
   }
